@@ -1,56 +1,42 @@
 # XIAO ESP32-C3 Wi-Fi Repeater
 
-A Wi-Fi repeater / NAT router project using the Seeed Studio XIAO ESP32-C3 and Arduino IDE.
+A Wi-Fi repeater / range extender project based on the **Seeed Studio XIAO ESP32-C3** and **Arduino IDE**.
 
-## Features
+The ESP32-C3 connects to an existing Wi-Fi network as a **Station (STA)** and simultaneously creates a new Wi-Fi network as an **Access Point (AP)**. NAT/NAPT is used to allow devices connected to the new network to access the upstream network and the Internet.
 
-- Wi-Fi Station (STA) mode
-- Wi-Fi Access Point (AP) mode
-- NAT/NAPT routing
-- DHCP for connected clients
-- Internet sharing
-- Wi-Fi connection status monitoring
-- Connected client monitoring
+---
 
-## Hardware
+## Project Overview
 
-- Seeed Studio XIAO ESP32-C3
-- 2.4 GHz Wi-Fi router
-- USB cable
+The main objective of this project is to use the XIAO ESP32-C3 as a small and low-cost Wi-Fi repeater.
 
-## Software
+The ESP32-C3 performs two Wi-Fi functions simultaneously:
 
-- Arduino IDE
-- ESP32 Arduino Core
+- **STA Mode** – Connects to the existing Wi-Fi router.
+- **AP Mode** – Creates a new Wi-Fi network for other devices.
+- **NAT/NAPT** – Routes network traffic between the AP and STA interfaces.
 
-## Network
+### Network Architecture
 
 ```text
-             Internet
-                 |
-                 |
-          Wi-Fi Router
-                 |
-                 | Wi-Fi
-                 |
-        +--------+--------+
-        | XIAO ESP32-C3   |
-        |                 |
-        | STA + NAT/NAPT  |
-        |       +         |
-        |       AP        |
-        +--------+--------+
-                 |
-                 |
-          ESP32-Repeater
-                 |
-          +------+------+
-          |             |
-        Phone         Laptop
-
-## Contribution
-
-**Project Author:** Mayank Sunhare  
-**AI Assistance:** ChatGPT (OpenAI)
-
-ChatGPT was used for programming assistance, debugging, technical guidance, and project documentation.
+                 Existing Wi-Fi Router
+                        │
+                        │ Wi-Fi
+                        ▼
+               ┌──────────────────┐
+               │  XIAO ESP32-C3   │
+               │                  │
+               │  STA + AP + NAPT │
+               └────────┬─────────┘
+                        │
+                        │ Wi-Fi
+                        ▼
+                 ┌──────────────┐
+                 │  Repeater    │
+                 │  Wi-Fi AP    │
+                 └──────┬───────┘
+                        │
+              ┌─────────┼─────────┐
+              │         │         │
+              ▼         ▼         ▼
+            Phone      Laptop     IoT
