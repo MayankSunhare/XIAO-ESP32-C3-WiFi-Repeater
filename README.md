@@ -47,3 +47,10 @@ A Wi-Fi repeater / NAT router project using the Seeed Studio XIAO ESP32-C3 and A
           +------+------+
           |             |
         Phone         Laptop
+
+## Contribution
+
+**Project Author:** Mayank Sunhare  
+**AI Assistance:** ChatGPT (OpenAI)
+
+ChatGPT was used for programming assistance, debugging, technical guidance, and project documentation.
