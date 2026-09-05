@@ -1,59 +1,42 @@
-<div align="center">
+# XIAO ESP32-C3 Wi-Fi Repeater
 
-# 📡 XIAO ESP32-C3 Wi-Fi Repeater
+A Wi-Fi repeater / range extender project based on the **Seeed Studio XIAO ESP32-C3** and **Arduino IDE**.
 
-### A Compact Wi-Fi Repeater & NAT Router using Seeed Studio XIAO ESP32-C3
-
-[![Platform](https://img.shields.io/badge/Platform-ESP32--C3-blue.svg)](https://www.espressif.com/)
-[![Board](https://img.shields.io/badge/Board-XIAO%20ESP32--C3-green.svg)](https://www.seeedstudio.com/XIAO-ESP32C3-p-5431.html)
-[![Framework](https://img.shields.io/badge/Framework-Arduino-orange.svg)](https://www.arduino.cc/)
-[![WiFi](https://img.shields.io/badge/Wi--Fi-2.4GHz-blue.svg)](https://www.wi-fi.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-**Extend your Wi-Fi network using a small ESP32-C3 based embedded system.**
-
-</div>
+The ESP32-C3 connects to an existing Wi-Fi network as a **Station (STA)** and simultaneously creates a new Wi-Fi network as an **Access Point (AP)**. NAT/NAPT is used to allow devices connected to the new network to access the upstream network and the Internet.
 
 ---
 
-## 📌 Overview
+## Project Overview
 
-This project turns the **Seeed Studio XIAO ESP32-C3** into a Wi-Fi repeater.
+The main objective of this project is to use the XIAO ESP32-C3 as a small and low-cost Wi-Fi repeater.
 
-The ESP32-C3 simultaneously operates as:
+The ESP32-C3 performs two Wi-Fi functions simultaneously:
 
-- 📥 **Wi-Fi Station (STA)** – connects to an existing Wi-Fi router
-- 📡 **Wi-Fi Access Point (AP)** – creates a new Wi-Fi network
-- 🌐 **NAT/NAPT Router** – forwards network traffic between the two interfaces
+- **STA Mode** – Connects to the existing Wi-Fi router.
+- **AP Mode** – Creates a new Wi-Fi network for other devices.
+- **NAT/NAPT** – Routes network traffic between the AP and STA interfaces.
 
-This makes it possible for phones, laptops, IoT devices, and other Wi-Fi clients to connect through the ESP32-C3 to the upstream Wi-Fi network.
-
----
-
-## 🧩 System Architecture
+### Network Architecture
 
 ```text
-                  EXISTING Wi-Fi ROUTER
-                         │
-                         │  Wi-Fi
-                         ▼
-                ┌──────────────────┐
-                │                  │
-                │   XIAO ESP32-C3  │
-                │                  │
-                │  STA + AP + NAPT │
-                │                  │
-                └────────┬─────────┘
-                         │
-                         │  Wi-Fi
-                         ▼
-                  ┌──────────────┐
-                  │   ESP32-C3   │
-                  │   Access     │
-                  │    Point     │
-                  └──────┬───────┘
-                         │
-              ┌──────────┼──────────┐
-              │          │          │
-              ▼          ▼          ▼
-           📱 Phone    💻 Laptop   🤖 IoT
+                 Existing Wi-Fi Router
+                        │
+                        │ Wi-Fi
+                        ▼
+               ┌──────────────────┐
+               │  XIAO ESP32-C3   │
+               │                  │
+               │  STA + AP + NAPT │
+               └────────┬─────────┘
+                        │
+                        │ Wi-Fi
+                        ▼
+                 ┌──────────────┐
+                 │  Repeater    │
+                 │  Wi-Fi AP    │
+                 └──────┬───────┘
+                        │
+              ┌─────────┼─────────┐
+              │         │         │
+              ▼         ▼         ▼
+            Phone      Laptop     IoT
