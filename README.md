@@ -49,7 +49,7 @@ The project is developed using **Arduino IDE** and the **ESP32 Arduino framework
 
 <div align="center">
 
-<img src="images/xiao-repeater.jpg" alt="XIAO ESP32-C3 Wi-Fi Repeater" width="600">
+<img src="images/imagesxiao-repeater.jpg" alt="XIAO ESP32-C3 Wi-Fi Repeater" width="600">
 
 ### XIAO ESP32-C3 Wi-Fi Repeater
 
