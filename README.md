@@ -32,16 +32,16 @@ The project is developed using **Arduino IDE** and the **ESP32 Arduino framework
 
 ## ✨ Features
 
-- ✅ Wi-Fi STA + AP simultaneous operation
-- ✅ NAT/NAPT network routing
-- ✅ Automatic upstream Wi-Fi connection
-- ✅ Dedicated repeater Wi-Fi network
-- ✅ DHCP for connected clients
-- ✅ Serial Monitor status information
-- ✅ Automatic NAPT enable/disable
-- ✅ Compact and low-cost hardware
-- ✅ Arduino IDE compatible
-- ✅ Suitable for IoT and networking experiments
+- Wi-Fi STA + AP simultaneous operation
+- NAT/NAPT network routing
+- Automatic upstream Wi-Fi connection
+- Dedicated repeater Wi-Fi network
+- DHCP for connected clients
+- Serial Monitor status information
+- Automatic NAPT enable/disable
+- Compact and low-cost hardware
+- Arduino IDE compatible
+- Suitable for IoT and networking experiments
 
 ---
 
